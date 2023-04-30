@@ -1,6 +1,12 @@
+name: Print Node Version
 on: push
-job: 
-     first-job:
-         run-on:  ubuntu-latest,
-         steps:
-         - run: node --version
+jobs:
+  print-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Print Node Version
+        run: node -v
